@@ -18,7 +18,7 @@ body{
     margin-left: auto;
     margin-right: auto;
     float: none !important;
-    margin-bottom: -1em;
+    margin-bottom: -3em;
 }
 .jumbotron h1, .jumbotron p{
     color: white;
@@ -64,6 +64,46 @@ h3{
 
 #contact{
     margin-bottom: 2em;
+}
+
+.navbar{
+    position: absolute;
+    right: 0px;
+    margin-right: 1em;
+    margin-top: 1em;
+}
+
+.flag{
+    display: inline-block;
+    position: relative;
+    width: 30px;
+    height: 30px;
+    overflow: hidden;
+    border-radius: 50%;
+}
+
+.flag img{
+    width: auto;
+  height: 100%;
+  margin-left: -31%;
+}
+
+.language p{
+    color: white;
+    float: left;
+    margin-right: 0.4em;
+    margin-top: 0.3em;
+}
+
+.language{
+    transition: transform .5s;
+
+}
+
+.language:hover{
+    transform: scale(1.1); 
+    -mz-transition:width 19s;
+
 }
 
 
