@@ -22,6 +22,7 @@ body{
 }
 .jumbotron h1, .jumbotron p{
     color: white;
+    text-align: center;
 }
 
 .row{
@@ -64,6 +65,16 @@ h3{
 
 #contact{
     margin-bottom: 2em;
+}
+
+.contactme{
+    transition: transform .5s;
+
+}
+
+.contactme:hover{
+    transform: scale(1.1); 
+    -mz-transition:width 19s;
 }
 
 .navbar{
