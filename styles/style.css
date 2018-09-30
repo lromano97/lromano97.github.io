@@ -81,7 +81,7 @@ h3{
     position: absolute;
     right: 0px;
     margin-right: 1em;
-    margin-top: 1em;
+    margin-top: 1.5em;
 }
 
 .flag{
@@ -115,6 +115,10 @@ h3{
     transform: scale(1.1); 
     -mz-transition:width 19s;
 
+}
+
+p, a, h1, h2, h3{
+    font-family: 'K2D', sans-serif;
 }
 
 
