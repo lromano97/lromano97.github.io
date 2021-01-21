@@ -54,7 +54,7 @@ const Text = styled.p<TextProps>`
 	margin: ${({ size }) => (size && margin[size] ? margin[size] : "10px")};
 
 	@media (max-width: 500px) {
-		margin: ${({ size }) => (size && margin[size] ? margin[size] : "10px")};
+		margin: ${({ size }) => (size && margin[size] ? margin[size] : "15px")};
 	}
 
 	@media (max-width: 350px) {

@@ -25,7 +25,7 @@ const NetworksContainer = styled.div`
 	background-color: #3482b9;
 	display: flex;
 	flex-wrap: wrap;
-	justify-content: space-around;
+	justify-content: space-evenly;
 	padding: 0px 10px;
 `;
 

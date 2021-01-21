@@ -10,8 +10,7 @@ const Card = styled.div`
 	justify-content: space-evenly;
 	align-items: center;
 	width: 75%;
-	max-height: 500px;
-	min-height: 350px;
+	height: 80%;
 	padding: 20px;
 	border-radius: 10px;
 	box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.2);

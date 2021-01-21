@@ -18,13 +18,13 @@ const StackOverflowContainer = styled.a`
 	width: 80%;
 	margin: 20px auto;
 	background: white;
-
+	height: 30%;
 	box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.2);
 	// &:hover {
 	// 	box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.2);
 	// }
 
-	@media (max-width: 350px) {
+	@media (min-width: 300px) {
 		padding: 20px;
 	}
 `;
@@ -33,7 +33,7 @@ const Image = styled.img`
 	height: 100px;
 	border-radius: 50%;
 	margin-right: 10px;
-	@media (max-width: 350px) {
+	@media (max-width: 370px) {
 		height: 80px;
 	}
 `;
