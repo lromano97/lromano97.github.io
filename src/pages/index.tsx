@@ -6,8 +6,8 @@ import About from "../components/About";
 import Banner from "../components/Banner";
 import Footer from "../components/Footer";
 import Tools from "../components/Tools/Tools";
-import "../css/typography.css";
-import "../css/index.css";
+import "../css/typography.scss";
+import "../css/index.scss";
 import StackOverflow from "../components/Contributions/Stackoverflow/Stackoverflow";
 import { Github as GithubType, StackOverflow as StackOverflowType } from "../types";
 import Contributions from "../components/Contributions/Contributions";
@@ -35,9 +35,8 @@ const IndexPage: React.FC = () => {
 	}, []);
 
 	const getStackOverflowData = (response: AxiosResponse): StackOverflowType => {
-		const { badge_counts, reputation, link, profile_image, display_name } = response.data.items[0];
+		const { reputation, link, profile_image, display_name } = response.data.items[0];
 		return {
-			badges: badge_counts,
 			reputation,
 			link,
 			image: profile_image,
@@ -46,10 +45,10 @@ const IndexPage: React.FC = () => {
 	};
 
 	const getGithubData = (response: AxiosResponse): GithubType => {
-		const { login, avatar_url, url } = response.data;
+		const { login, avatar_url, html_url } = response.data;
 		return {
 			image: avatar_url,
-			link: url,
+			link: html_url,
 			name: login,
 		};
 	};

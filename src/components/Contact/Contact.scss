@@ -1,0 +1,32 @@
+@import '../../css/commons.scss';
+
+.contact-section {
+    height: 100vh;
+    width: 100%;
+    background-image: url('../../images/backgrounds/contact.png');
+    background-position: right 0px bottom 0px;
+	background-repeat: no-repeat;
+	background-size: 100% auto;
+
+}
+
+.contact-card {
+    width: 50%;
+	padding: 10px;
+	max-width: 200px;
+    box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.2);
+    max-width: 200px;
+}
+
+@media (min-width: 321px) {
+    .contact-card {
+        padding: 20px;
+    }
+}
+
+@media (min-width: 600px) {
+    .contact-card {
+        padding: 30px;
+    }
+}
+

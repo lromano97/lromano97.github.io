@@ -1,0 +1,27 @@
+@import '../../css/commons.scss';
+
+.work-section {
+	padding: 0;
+}
+
+.text-container {
+    box-sizing: border-box;
+    height: 30%;
+}
+
+.network-container {
+	height: 70%;
+	width: 100%;
+	background-color: #3482b9;
+	display: flex;
+	flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+.network-card {
+    text-decoration: none;
+    padding: 20px;
+    height: 30%;
+}

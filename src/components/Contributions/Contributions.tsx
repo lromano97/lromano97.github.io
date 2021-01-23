@@ -7,9 +7,11 @@ import Text from "../Text";
 
 import Github from "./Github/Github";
 import StackOverflow from "./Stackoverflow/Stackoverflow";
+import "./Contributions.scss";
 
 const ContributionContainer = styled(Section)`
 	height: 100vh;
+	padding: 0;
 `;
 
 const TextContainer = styled.div`
@@ -36,20 +38,16 @@ type ContributionsProps = {
 
 const Contributions: React.FC<ContributionsProps> = ({ stackoverflow, github }) => {
 	return (
-		<ContributionContainer>
-			<TextContainer>
-				<Text size="medium" color="blue" weight="medium" align="left">
-					My work
-				</Text>
-				<Text size="medium" weight="bold" align="left">
-					I like to contribute to the community on my free time.
-				</Text>
-			</TextContainer>
-			<NetworksContainer>
+		<div className="section work-section">
+			<div className="heading-container text-container">
+				<p className="text like-h3">My work</p>
+				<p className="text like-h2">I like to contribute to the community on my free time.</p>
+			</div>
+			<div className="network-container">
 				<StackOverflow {...stackoverflow} />
 				<Github {...github} />
-			</NetworksContainer>
-		</ContributionContainer>
+			</div>
+		</div>
 	);
 };
 

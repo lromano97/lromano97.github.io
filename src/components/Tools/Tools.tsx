@@ -11,6 +11,7 @@ const ToolsSection = styled(Section)`
 	justify-content: space-around;
 	height: 100vh;
 	background: linear-gradient(180deg, #3482b9 50%, white 50%);
+	padding: 0px;
 `;
 
 const ToolsText = styled.div`

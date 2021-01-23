@@ -1,0 +1,76 @@
+@import 'theme.scss';
+
+.section {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: $border-radius;
+    background-color: white;
+}
+
+.heading-container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.text {
+    margin: 5px;
+    font-family: "Montserrat", Verdana, sans-serif;
+}
+
+.like-h1 {
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.like-h2 {
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.like-h3 {
+    font-size: 20px;
+    font-weight: bold;
+    color: $blue;
+}
+
+.like-h4 {
+    font-size: 15px;
+    color: $gray;
+}
+
+@media (min-width: 321px) {
+    .like-h1 {
+        font-size: 40px;
+    }
+
+    .like-h2 {
+        font-size: 35px;
+    }
+
+    .like-h3 {
+        font-size: 30px;
+    }
+
+    .like-h4 {
+        font-size: 20px;
+    }
+}
+
+@media (min-width: 600px) {
+    .jumbo-heading {
+        font-size: 100px;
+    }
+}
