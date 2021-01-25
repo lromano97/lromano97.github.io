@@ -2,16 +2,16 @@ import React, { useState, useEffect } from "react";
 import { IconContext } from "react-icons/lib";
 import axios, { AxiosResponse } from "axios";
 
-import About from "../components/About";
-import Banner from "../components/Banner";
-import Footer from "../components/Footer";
+import About from "../components/About/About";
+import Banner from "../components/Banner/Banner";
 import Tools from "../components/Tools/Tools";
 import "../css/typography.scss";
 import "../css/index.scss";
-import StackOverflow from "../components/Contributions/Stackoverflow/Stackoverflow";
 import { Github as GithubType, StackOverflow as StackOverflowType } from "../types";
 import Contributions from "../components/Contributions/Contributions";
 import Contact from "../components/Contact/Contact";
+import Languages from "../components/Languages/Languages";
+import Footer from "../components/Footer/Footer";
 
 // markup
 const IndexPage: React.FC = () => {
@@ -26,9 +26,13 @@ const IndexPage: React.FC = () => {
 				"https://api.stackexchange.com/2.2/users/13339352?order=desc&sort=reputation&site=stackoverflow"
 			);
 			const githubReq = axios.get("https://api.github.com/users/lromano97");
-			const [stackOverflowRes, githubRes] = await Promise.all([stackOverflowReq, githubReq]);
-			setStackOverflowStats(getStackOverflowData(stackOverflowRes));
-			setGithubStats(getGithubData(githubRes));
+			try {
+				const [stackOverflowRes, githubRes] = await Promise.all([stackOverflowReq, githubReq]);
+				setStackOverflowStats(getStackOverflowData(stackOverflowRes));
+				setGithubStats(getGithubData(githubRes));
+			} catch (e) {
+				console.error("Cannot load stackoverflow and github information.");
+			}
 			setLoading(false);
 		};
 		getStats();
@@ -60,10 +64,12 @@ const IndexPage: React.FC = () => {
 					<Banner />
 					<About />
 					<Tools />
-					{stackOverflowStats && (
+					<Languages />
+					{stackOverflowStats && githubStats && (
 						<Contributions stackoverflow={{ ...stackOverflowStats }} github={{ ...githubStats }} />
 					)}
 					<Contact />
+					<Footer />
 				</React.Fragment>
 			)}
 		</IconContext.Provider>

@@ -1,0 +1,51 @@
+@import '../../../css/commons.scss';
+
+.tool-card {
+    @extend .card;
+    flex-direction: column;
+    justify-content: space-evenly;
+    width: 75%;
+	height: 80%;
+    padding: 20px;
+    box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.2);
+    margin: 15px;
+    @media (min-width: 600px) {
+		width: 350px;
+		height: 500px;
+    }
+}
+
+.tool-card > div,
+.tool-card > p {
+    animation: toolAnimation 0.5s 1 0s linear;
+}
+
+@keyframes toolAnimation {
+    0% {
+        opacity: 0.3;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+
+.icon-container {
+    display: flex;
+	justify-content: center;
+	align-content: center;
+	border-radius: 50%;
+    padding: 20px;
+}
+
+.yellow {
+    background-color: $yellow;
+}
+
+.purple {
+    background-color: $purple;
+}
+
+.green {
+    background-color: $green;
+}

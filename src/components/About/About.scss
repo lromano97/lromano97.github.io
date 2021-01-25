@@ -1,0 +1,26 @@
+.about-section {
+    height: 100vh;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	background-image: url("../../images/backgrounds/about.png");
+	background-position: right 0px bottom 0px;
+	background-repeat: no-repeat;
+	background-size: 100% auto;
+
+	@media (max-width: 600px) {
+		background-size: 100% auto;
+	}
+}
+
+@media (min-width: 600px) {
+    .about-container {
+        width: 70%;
+    }
+
+    .about-section {
+        background-size: 100% 100%;
+    }
+}

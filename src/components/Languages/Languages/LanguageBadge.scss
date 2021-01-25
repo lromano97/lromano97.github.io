@@ -1,0 +1,36 @@
+@import '../../../css/theme.scss';
+
+.badge {
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    background-color: red;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.java-badge {
+    @extend .badge;
+    background-color: $java;
+    animation: javaAnimation 0.6s 1 0s linear;
+}
+
+@keyframes javaAnimation {
+    0%{
+        transform: translateX(100px) translateY(100px);
+        }
+    100%{
+        }
+}
+
+
+.typescript-badge {
+    @extend .badge;
+    background-color: $typescript;
+}
+
+.javascript-badge {
+    @extend .badge;
+    background-color: $javascript;
+}

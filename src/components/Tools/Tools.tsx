@@ -1,53 +1,72 @@
-import React from "react";
-import styled from "styled-components";
+import React, { useEffect, useState } from "react";
+import { FiArrowLeft, FiArrowRight } from "react-icons/fi";
 
-import Container from "../Container";
-import Section from "../Section";
-import Text from "../Text";
-
-import Tool from "./Tool";
-
-const ToolsSection = styled(Section)`
-	justify-content: space-around;
-	height: 100vh;
-	background: linear-gradient(180deg, #3482b9 50%, white 50%);
-	padding: 0px;
-`;
-
-const ToolsText = styled.div`
-	display: flex;
-	justify-content: center;
-	flex-direction: column;
-`;
+import "./Tools.scss";
+import Tool from "./Tool/Tool";
 
 const frontend = ["React.js", "React Native"];
 const backend = ["Node.js", "Spring Boot"];
 const databases = ["MongoDB", "PostgreSQL", "OracleDB"];
 
 const Tools: React.FC = () => {
+	const [selected, setSelected] = useState(0);
+	const smallDevice = window.matchMedia("(max-width: 1200px").matches;
+
+	useEffect(() => {
+		if (smallDevice) {
+			setSelected(0);
+		}
+	}, [smallDevice]);
+
+	const shouldBeVisible = (index: number) => !smallDevice || index === selected;
+	const goLeft = () => {
+		if (selected === 0) return;
+		setSelected((prevSelected) => prevSelected - 1);
+	};
+
+	const goRight = () => {
+		if (selected === 2) return;
+		setSelected((prevSelected) => prevSelected + 1);
+	};
+
 	return (
-		<ToolsSection>
-			<ToolsText>
-				<Text size="large" weight="bold" color="white" align="center">
-					The tools I love using.
-				</Text>
-			</ToolsText>
-			<Container>
-				<Tool
-					toolSet={frontend}
-					icon="frontend"
-					title="Frontend"
-					caption="What I use to create awesome user interfaces with a focus on performance and user experience"
-				/>
-				{/* <Tool
-					toolSet={backend}
-					icon="server"
-					title="Server-side"
-					caption="What I use to create high performance microservices"
-				/>
-				<Tool toolSet={databases} icon="database" title="Databases" caption="Where I like to store my data" /> */}
-			</Container>
-		</ToolsSection>
+		<div className="section tool-section">
+			<div className="heading-container centered-heading-container">
+				<p className="text like-h2 tools-text">The tools I love using.</p>
+			</div>
+			<div className="tools-container">
+				{shouldBeVisible(0) && (
+					<Tool
+						toolSet={frontend}
+						icon="frontend"
+						title="Frontend"
+						caption="What I use to create awesome user interfaces with a focus on performance and user experience"
+					/>
+				)}
+				{shouldBeVisible(1) && (
+					<Tool
+						toolSet={backend}
+						icon="server"
+						title="Server-side"
+						caption="What I use to create high performance microservices"
+					/>
+				)}
+				{shouldBeVisible(2) && (
+					<Tool
+						toolSet={databases}
+						icon="database"
+						title="Databases"
+						caption="Where I like to store my data"
+					/>
+				)}
+			</div>
+			{smallDevice && (
+				<div className="arrows-container">
+					<FiArrowLeft className="arrow" color="#c7c7c7" onClick={goLeft} />
+					<FiArrowRight className="arrow" color="#c7c7c7" onClick={goRight} />
+				</div>
+			)}
+		</div>
 	);
 };
 
