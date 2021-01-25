@@ -10,7 +10,7 @@ const databases = ["MongoDB", "PostgreSQL", "OracleDB"];
 
 const Tools: React.FC = () => {
 	const [selected, setSelected] = useState(0);
-	const smallDevice = window.matchMedia("(max-width: 1200px").matches;
+	const smallDevice = typeof window !== "undefined" ? window.matchMedia("(max-width: 1200px").matches : null;
 
 	useEffect(() => {
 		if (smallDevice) {
