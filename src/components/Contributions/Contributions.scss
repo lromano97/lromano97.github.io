@@ -1,0 +1,74 @@
+@import '../../css/commons.scss';
+
+.work-section {
+    @extend .section;
+    padding: 0;
+}
+
+.text-container {
+    @extend .heading-container;
+    box-sizing: border-box;
+    height: 40%;
+}
+
+.network-container {
+	height: 60%;
+	width: 100%;
+	background-color: $blue;
+	display: flex;
+	flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+.network-card {
+    @extend .card;
+    box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.2);
+    text-decoration: none;
+    padding: 20px 30px;
+    height: 30%;
+    width: 70%;
+}
+
+a > p,
+a > div > p { 
+    color: black;
+}
+
+.contribution-image {
+    height: 100px;
+	border-radius: 50%;
+	margin-right: 10px;
+	@media (max-width: 370px) {
+		height: 80px;
+	}
+}
+
+@media (min-width: 1000px) {
+    .work-section {
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-items: center;
+    }
+
+    .text-container {
+        align-self: center;
+    }
+
+    .network-container {
+        height: 100%;
+    }
+
+    .network-card {
+        width: 60%;
+        height: 20%;
+        justify-content: flex-start;
+    }
+}
+
+@media (min-width: 1400px) {
+    .network-card {
+        width: 50%;
+    }
+}
