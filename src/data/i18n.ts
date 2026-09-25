@@ -24,7 +24,7 @@ export const formatPeriod = ({ start, end }: Period, language: Language): string
     ? String(start)
     : `${start}–${end === "present" ? (language === "es" ? "actualidad" : "present") : end}`;
 
-// Career dates and role wording are a draft from public indexed sources. Confirm with Lucas before publishing.
+// Career dates and role wording are a draft from public indexed sources. Review with Lucas and correct as needed.
 export const career: CareerStop[] = [
   {
     company: "Mercado Libre",

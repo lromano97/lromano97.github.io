@@ -8,9 +8,9 @@ Use Node.js 24 and pnpm. Install dependencies with pnpm install, run the site wi
 
 Contact links live in `src/data/site.ts`. English and Spanish copy, role titles, and career dates live in `src/data/i18n.ts`. Update both languages there for routine content changes; the shared page layout lives in `src/components/PortfolioPage.astro`.
 
-## Editorial review before publishing
+## Career details to review
 
-The current GenAI Gateway description comes from Lucas's direct account and public GitHub profile. The earlier role names and approximate years came from indexed public career sources because LinkedIn's detailed experience is gated. Lucas must confirm the roles, dates, and wording before this version is published. Do not add internal architecture, team size, or performance numbers without his approval.
+The current GenAI Gateway description comes from Lucas's direct account and public GitHub profile. The earlier role names and approximate years came from indexed public career sources because LinkedIn's detailed experience is gated. The site is live as a v1; Lucas should review the roles, dates, and wording and correct anything inaccurate. Do not add internal architecture, team size, or performance numbers without his approval.
 
 The résumé action is intentionally absent until a current PDF is provided.
 
