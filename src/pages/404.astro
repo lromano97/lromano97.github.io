@@ -1,0 +1,21 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout pageTitle="Page not found" description="The page you requested could not be found. Return to Lucas Romano’s portfolio.">
+  <main id="main" class="not-found site-shell">
+    <a class="wordmark" href="/" aria-label="Lucas Romano, home">
+      <span class="brand-glyph" aria-hidden="true"><span></span><span></span><span></span></span>
+      <span>Lucas Romano</span>
+    </a>
+    <div>
+      <p class="section-index">404 / Page not found</p>
+      <h1>That page isn’t here.</h1>
+      <p>The link may have changed, or the address may be incorrect.</p>
+      <div class="not-found-actions">
+        <a class="text-link primary-link" href="/">Return home <span aria-hidden="true">↗</span></a>
+        <a class="text-link" href="/es/" lang="es">Ir al inicio en español <span aria-hidden="true">↗</span></a>
+      </div>
+    </div>
+  </main>
+</BaseLayout>

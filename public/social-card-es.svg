@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#f7f9fa"/>
+  <path d="M60 64H1140M60 566H1140" stroke="#c8d7df" stroke-width="2"/>
+  <rect x="60" y="92" width="8" height="28" fill="#235f7b"/>
+  <text x="88" y="114" fill="#4c6570" font-family="Arial, sans-serif" font-size="24">Líder técnico en Mercado Libre</text>
+  <text x="60" y="270" fill="#16313d" font-family="Arial, sans-serif" font-size="112" font-weight="700">Lucas Romano.</text>
+  <text x="60" y="372" fill="#16313d" font-family="Arial, sans-serif" font-size="49" font-weight="700">Liderazgo técnico.</text>
+  <text x="60" y="438" fill="#16313d" font-family="Arial, sans-serif" font-size="49" font-weight="700">Sin dejar de construir.</text>
+  <text x="60" y="541" fill="#235f7b" font-family="Arial, sans-serif" font-size="23">lromano97.github.io</text>
+  <path d="M1028 338v-122m0 122h84" fill="none" stroke="#235f7b" stroke-width="9"/>
+  <circle cx="997" cy="277" r="9" fill="#235f7b"/>
+  <circle cx="1138" cy="277" r="9" fill="#235f7b"/>
+  <circle cx="1138" cy="399" r="9" fill="#235f7b"/>
+</svg>

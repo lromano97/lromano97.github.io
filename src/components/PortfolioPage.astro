@@ -1,0 +1,146 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { site } from "../data/site";
+import { career, copy, formatPeriod, type Language } from "../data/i18n";
+
+interface Props {
+  language: Language;
+}
+
+const { language } = Astro.props;
+const t = copy[language];
+const homeUrl = language === "es" ? "/es/" : "/";
+---
+
+<BaseLayout language={language} alternateLanguages>
+  <header class="site-header">
+    <div class="site-shell header-inner">
+      <a class="wordmark" href={homeUrl} aria-label={t.homeLabel}>
+        <span class="brand-glyph" aria-hidden="true"><span></span><span></span><span></span></span>
+        <span>{site.name}</span>
+      </a>
+      <nav class="main-nav" aria-label={t.navigationLabel}>
+        <a href="#experience">{t.nav.experience}</a>
+        <a href="#work">{t.nav.work}</a>
+        <a href="#about">{t.nav.about}</a>
+        <a class="nav-contact" href="#contact">{t.nav.contact}</a>
+      </nav>
+      <nav class="language-switch" aria-label={t.languageLabel}>
+        <a href="/" lang="en" hreflang="en" aria-label="English" aria-current={language === "en" ? "page" : undefined}>EN</a>
+        <span aria-hidden="true">/</span>
+        <a href="/es/" lang="es" hreflang="es" aria-label="Español" aria-current={language === "es" ? "page" : undefined}>ES</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero site-shell" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="hero-identity">{t.hero.identity}</p>
+        <h1 id="hero-title">{site.name}.</h1>
+        <p class="hero-role">{t.hero.role}</p>
+        <p class="hero-intro">{t.hero.introduction}</p>
+        <div class="hero-actions">
+          <a class="text-link primary-link" href="#experience">{t.hero.experienceLink} <span aria-hidden="true">↗</span></a>
+          <a class="text-link" href={"mailto:" + site.email}>{t.hero.contactLink} <span aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience" class="experience-section site-shell" aria-labelledby="experience-title">
+      <div class="section-heading">
+        <p class="section-index">{t.experience.label}</p>
+        <h2 id="experience-title">{t.experience.title}</h2>
+        <p>{t.experience.introduction}</p>
+      </div>
+      <ol class="career-list">
+        {career.map((stop) => (
+          <li class="career-stop">
+            <div class="career-company">
+              <h3>{stop.company}</h3>
+              <p>{formatPeriod(stop.period, language)}</p>
+            </div>
+            <div class="career-roles">
+              {stop.roles.map((role) => (
+                <div class="career-role">
+                  <div class="role-heading">
+                    <h4>{role.title[language]}</h4>
+                    <p>{formatPeriod(role.period, language)}</p>
+                  </div>
+                  {role.description && <p class="role-description">{role.description[language]}</p>}
+                </div>
+              ))}
+            </div>
+          </li>
+        ))}
+      </ol>
+    </section>
+
+    <section id="work" class="work-section" aria-labelledby="work-title">
+      <div class="site-shell work-inner">
+        <div class="work-copy">
+          <p class="section-index">{t.work.label}</p>
+          <h2 id="work-title">{t.work.title}</h2>
+          <p class="work-statement">{t.work.statement}</p>
+          <p class="work-description">{t.work.description}</p>
+        </div>
+        <div class="route-visual">
+          <svg viewBox="0 0 520 500" role="img" aria-labelledby="route-title route-description">
+          <title id="route-title">{t.work.diagramTitle}</title>
+          <desc id="route-description">{t.work.diagramDescription}</desc>
+          <rect x="1" y="1" width="518" height="498" rx="4" fill="#eaf1f4" stroke="#c8d7df" />
+          <path d="M0 96H520M0 232H520M0 368H520M112 0V500M260 0V500M408 0V500" stroke="#d6e2e8" stroke-width="1" />
+          <path d="M52 124H126L214 212H260" stroke="#7299aa" stroke-width="3" fill="none" />
+          <path d="M52 250H260" stroke="#7299aa" stroke-width="3" fill="none" />
+          <path d="M52 376H126L214 288H260" stroke="#7299aa" stroke-width="3" fill="none" />
+          <path d="M260 250H316L404 162H470M316 250L404 250H470M316 250L404 338H470" stroke="#235f7b" stroke-width="3" fill="none" />
+          <circle cx="52" cy="124" r="8" fill="#f7f9fa" stroke="#7299aa" stroke-width="3" />
+          <circle cx="52" cy="250" r="8" fill="#f7f9fa" stroke="#7299aa" stroke-width="3" />
+          <circle cx="52" cy="376" r="8" fill="#f7f9fa" stroke="#7299aa" stroke-width="3" />
+          <circle cx="470" cy="162" r="8" fill="#f7f9fa" stroke="#235f7b" stroke-width="3" />
+          <circle cx="470" cy="250" r="8" fill="#f7f9fa" stroke="#235f7b" stroke-width="3" />
+          <circle cx="470" cy="338" r="8" fill="#f7f9fa" stroke="#235f7b" stroke-width="3" />
+          <rect x="218" y="208" width="84" height="84" rx="2" fill="#173c4c" />
+          <path d="M240 250h40m-11-11 11 11-11 11" stroke="#ffffff" stroke-width="3" fill="none" stroke-linecap="square" />
+          <text x="32" y="46" class="route-label">{t.work.diagramLabels[0]}</text>
+          <text x="228" y="46" class="route-label">{t.work.diagramLabels[1]}</text>
+          <text x="421" y="46" class="route-label">{t.work.diagramLabels[2]}</text>
+          </svg>
+          <p class="visual-caption">{t.work.diagramCaption}</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="about-section site-shell" aria-labelledby="about-title">
+      <div>
+        <p class="section-index">{t.about.label}</p>
+        <h2 id="about-title">{t.about.title}</h2>
+      </div>
+      <p>{t.about.description}</p>
+    </section>
+
+    <section id="contact" class="contact-section" aria-labelledby="contact-title">
+      <div class="site-shell contact-inner">
+        <div>
+          <p class="section-index">{t.contact.label}</p>
+          <h2 id="contact-title">{t.contact.title}</h2>
+          <p>{t.contact.description}</p>
+        </div>
+        <a class="contact-email" href={"mailto:" + site.email}>
+          {t.contact.emailLink} <span aria-hidden="true">↗</span>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="site-shell footer-inner">
+      <p>© {new Date().getFullYear()} {site.name}</p>
+      <div class="footer-links">
+        <a href={site.links.github}>GitHub <span aria-hidden="true">↗</span></a>
+        <a href={site.links.linkedin}>LinkedIn <span aria-hidden="true">↗</span></a>
+        <a href={"mailto:" + site.email}>{t.footer.emailLink} <span aria-hidden="true">↗</span></a>
+      </div>
+    </div>
+  </footer>
+</BaseLayout>

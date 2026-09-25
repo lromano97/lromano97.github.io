@@ -1,0 +1,59 @@
+---
+import "@fontsource/ibm-plex-sans/400.css";
+import "@fontsource/ibm-plex-sans/500.css";
+import "@fontsource/ibm-plex-sans/600.css";
+import "@fontsource/ibm-plex-sans-condensed/600.css";
+import "@fontsource/ibm-plex-sans-condensed/700.css";
+import "../styles/global.css";
+import { site } from "../data/site";
+import { copy, type Language } from "../data/i18n";
+
+interface Props {
+  pageTitle?: string;
+  description?: string;
+  language?: Language;
+  alternateLanguages?: boolean;
+}
+
+const { pageTitle, language = "en", alternateLanguages = false } = Astro.props;
+const description = Astro.props.description ?? copy[language].description;
+const title = pageTitle ? pageTitle + " | " + site.name : site.name + " | " + copy[language].siteTitle;
+const canonical = new URL(Astro.url.pathname, site.url).toString();
+const socialImage = new URL(language === "es" ? "/social-card-es.png" : "/social-card.png", site.url).toString();
+---
+
+<!doctype html>
+<html lang={language}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#f7f9fa" />
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    {alternateLanguages && (
+      <>
+        <link rel="alternate" hreflang="en" href={new URL("/", site.url).toString()} />
+        <link rel="alternate" hreflang="es" href={new URL("/es/", site.url).toString()} />
+        <link rel="alternate" hreflang="x-default" href={new URL("/", site.url).toString()} />
+      </>
+    )}
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content={language === "es" ? "es_AR" : "en_US"} />
+    <meta property="og:locale:alternate" content={language === "es" ? "en_US" : "es_AR"} />
+    <meta property="og:site_name" content={site.name} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={socialImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content={socialImage} />
+    <title>{title}</title>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">{copy[language].skipLink}</a>
+    <slot />
+  </body>
+</html>
